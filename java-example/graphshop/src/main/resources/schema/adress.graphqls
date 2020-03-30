@@ -1,0 +1,21 @@
+extend type Mutation {
+    deleteAdress(customerId: ID!, adressId: ID!): Boolean
+    createAdress(adressInput: AdressInput): Adress
+}
+input AdressInput {
+    customerId: ID!
+    receiver: String!
+    zipcode: String
+    cityname: String
+    streetname: String
+    housenumber: Int
+}
+
+type Adress implements Node {
+    id: ID!
+    receiver: String
+    zipcode: String
+    cityname: String
+    streetname: String
+    housenumber: Int
+}
