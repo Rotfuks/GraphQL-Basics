@@ -1,0 +1,29 @@
+type Query {
+    customer(id: ID!): Customer,
+}
+
+interface Node {
+    id: ID!
+}
+
+type Customer implements Node {
+    id: ID!
+    fullname: String!
+    addresses: [Address!]!
+    orders(id: ID, isDelivered: Boolean): [Order!]!
+}
+
+scalar GraphQLDate
+
+type Order implements Node {
+    id: ID!
+    deliveryaddress: Address!
+    price: Float
+    deliverydate: GraphQLDate
+    isDelivered: Boolean
+}
+
+type Address implements Node {
+    id: ID!
+    receiver: String
+}

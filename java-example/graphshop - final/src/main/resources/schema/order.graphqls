@@ -1,0 +1,16 @@
+extend type Mutation {
+    createOrder(orderInput: OrderInput): Order
+}
+input OrderInput {
+    customerId: ID!
+    deliveryaddressId: ID
+    deliveryaddress: AddressInput
+    price: Float
+}
+type Order implements Node {
+    id: ID!
+    deliveryaddress: Address!
+    price: Float
+    deliverydate: GraphQLDate
+    isDelivered: Boolean
+}

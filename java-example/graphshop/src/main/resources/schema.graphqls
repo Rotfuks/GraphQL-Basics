@@ -1,9 +1,0 @@
-scalar GraphQLDate
-
-type Query {
-}
-type Mutation {
-}
-interface Node {
-    id: ID!
-}

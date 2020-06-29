@@ -1,0 +1,21 @@
+type Query {
+    customer(id: ID!): Customer,
+}
+interface Node {
+    id: ID!
+}
+type Customer implements Node {
+    id: ID!
+    fullname: String!
+    addresses: [Address!]!
+    orders: [Order!]!
+}
+type Order implements Node {
+    id: ID!
+    deliveryaddress: Address!
+    price: Float
+}
+type Address implements Node {
+    id: ID!
+    receiver: String
+}
